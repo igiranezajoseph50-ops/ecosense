@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Analytics</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/analytics.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>♻</span>
+      <h2>EcoSense</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="./dashboard.html" class="nav-item">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="./bins.html" class="nav-item">
+        <span class="nav-icon">🗑️</span> Bin Monitoring
+      </a>
+      <a href="./analytics.html" class="nav-item active">
+        <span class="nav-icon">🤖</span> Analytics
+      </a>
+      <a href="./routes.html" class="nav-item">
+        <span class="nav-icon">🗺️</span> Routes
+      </a>
+      <a href="./admin.html" class="nav-item">
+        <span class="nav-icon">⚙️</span> Admin
+      </a>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Analytics</h1>
+        <p class="page-sub">Waste data insights and sensor history</p>
+      </div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span id="userName">Admin</span>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon green">📡</div>
+        <div>
+          <p class="stat-label">Total Sensor Logs</p>
+          <h2 class="stat-value" id="totalLogs">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">📈</div>
+        <div>
+          <p class="stat-label">Avg Fill Level</p>
+          <h2 class="stat-value" id="avgFill">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon yellow">⚠️</div>
+        <div>
+          <p class="stat-label">High Gas Alerts</p>
+          <h2 class="stat-value" id="gasAlerts">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red">🔴</div>
+        <div>
+          <p class="stat-label">Critical Events</p>
+          <h2 class="stat-value" id="criticalEvents">--</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHARTS ROW -->
+    <div class="analytics-grid">
+
+      <!-- FILL LEVEL CHART -->
+      <div class="chart-card">
+        <h3>Fill Level per Bin</h3>
+        <canvas id="fillChart"></canvas>
+      </div>
+
+      <!-- STATUS DISTRIBUTION -->
+      <div class="chart-card">
+        <h3>Bin Status Distribution</h3>
+        <canvas id="statusChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- SENSOR LOG TABLE -->
+    <div class="table-card">
+      <h3>Recent Sensor Logs</h3>
+      <table class="sensor-table">
+        <thead>
+          <tr>
+            <th>Bin ID</th>
+            <th>Fill Level</th>
+            <th>Weight</th>
+            <th>Gas</th>
+            <th>Temperature</th>
+            <th>Recorded At</th>
+          </tr>
+        </thead>
+        <tbody id="sensorTable">
+          <tr><td colspan="6" class="loading">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/analytics.js"></script>
+</body>
+</html>
