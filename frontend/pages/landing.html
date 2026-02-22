@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Smart Waste Management</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/landing.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">♻</span>
+      <span class="logo-text">Eco<span class="highlight">Sense</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+    </ul>
+    <a href="./login.html" class="btn-login">Launch App →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <canvas id="three-canvas"></canvas>
+
+    <!-- scan lines overlay -->
+    <div class="scanlines"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">🟢 SYSTEM ONLINE — KIGALI, RWANDA</div>
+      <h1 class="hero-title">
+        The Future of<br/>
+        <span class="highlight glitch" data-text="Waste Management">Waste Management</span>
+      </h1>
+      <p class="hero-sub">
+        AI-powered smart bins. Real-time monitoring.<br/>
+        Optimized routes. Cleaner cities.
+      </p>
+      <div class="hero-btns">
+        <a href="./login.html" class="btn-primary">Get Started</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+
+      <!-- live stats bar -->
+      <div class="live-stats">
+        <div class="live-stat">
+          <span class="live-dot"></span>
+          <span class="live-label">Bins Online</span>
+          <span class="live-val" id="countBins">0</span>
+        </div>
+        <div class="live-divider"></div>
+        <div class="live-stat">
+          <span class="live-dot yellow"></span>
+          <span class="live-label">Active Routes</span>
+          <span class="live-val" id="countRoutes">0</span>
+        </div>
+        <div class="live-divider"></div>
+        <div class="live-stat">
+          <span class="live-dot red"></span>
+          <span class="live-label">Alerts</span>
+          <span class="live-val" id="countAlerts">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- corner HUD elements -->
+    <div class="hud hud-tl">ECOSENSE v1.0</div>
+    <div class="hud hud-tr" id="hudTime"></div>
+    <div class="hud hud-bl">LAT -1.9441 / LNG 30.0619</div>
+    <div class="hud hud-br">SYS_STATUS: <span class="highlight">NOMINAL</span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <p class="section-tag">// WHAT IS ECOSENSE</p>
+      <h2 class="section-title">Smart Waste.<br/><span class="highlight">Smarter Cities.</span></h2>
+      <p class="section-desc">EcoSense Rwanda deploys IoT-powered smart bins across Kigali, collecting real-time data on fill levels, weight, gas and location — feeding an intelligent dashboard that keeps cities clean and efficient.</p>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="card-num">01</div>
+          <div class="card-icon">📡</div>
+          <h3>Real-time Sensors</h3>
+          <p>Smart bins transmit live fill, weight, gas and GPS data every minute.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-num">02</div>
+          <div class="card-icon">📊</div>
+          <h3>Live Dashboard</h3>
+          <p>Monitor every bin across the city from one powerful control center.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-num">03</div>
+          <div class="card-icon">🗺️</div>
+          <h3>Route Optimization</h3>
+          <p>Auto-generate optimal collection routes saving fuel and time.</p>
+        </div>
+        <div class="about-card">
+          <div class="card-num">04</div>
+          <div class="card-icon">⚡</div>
+          <h3>Instant Alerts</h3>
+          <p>Get notified instantly when bins hit critical fill levels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-tag">// KEY FEATURES</p>
+      <h2 class="section-title">Built for the <span class="highlight">Future</span></h2>
+
+      <div class="features-list">
+        <div class="feature-row">
+          <span class="feature-num">01</span>
+          <div class="feature-line"></div>
+          <div class="feature-body">
+            <h3>Green / Yellow / Red Status System</h3>
+            <p>Every bin has a live color-coded status updated in real time.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <span class="feature-num">02</span>
+          <div class="feature-line"></div>
+          <div class="feature-body">
+            <h3>Driver Assignment & Scheduling</h3>
+            <p>Assign drivers to routes and track their collection progress live.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <span class="feature-num">03</span>
+          <div class="feature-line"></div>
+          <div class="feature-body">
+            <h3>Full Sensor History</h3>
+            <p>View complete historical sensor data for every bin at any time.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <span class="feature-num">04</span>
+          <div class="feature-line"></div>
+          <div class="feature-body">
+            <h3>Admin Control Panel</h3>
+            <p>Add, edit, delete bins and users from one powerful admin panel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">♻ EcoSense Rwanda</div>
+    <p>© 2024 EcoSense Rwanda. Building cleaner cities with technology.</p>
+    <a href="./login.html" class="btn-primary">Launch App →</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/landing.js"></script>
+</body>
+</html>
