@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Bin Monitoring</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/bins.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>♻</span>
+      <h2>EcoSense</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="./dashboard.html" class="nav-item">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="./bins.html" class="nav-item active">
+        <span class="nav-icon">🗑️</span> Bin Monitoring
+      </a>
+      <a href="./analytics.html" class="nav-item">
+        <span class="nav-icon">🤖</span> Analytics
+      </a>
+      <a href="./routes.html" class="nav-item">
+        <span class="nav-icon">🗺️</span> Routes
+      </a>
+      <a href="./admin.html" class="nav-item">
+        <span class="nav-icon">⚙️</span> Admin
+      </a>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Bin Monitoring</h1>
+        <p class="page-sub">Live status of all smart bins</p>
+      </div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span id="userName">Admin</span>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="green">🟢 Green</button>
+      <button class="filter-btn" data-filter="yellow">🟡 Yellow</button>
+      <button class="filter-btn" data-filter="red">🔴 Critical</button>
+    </div>
+
+    <!-- BINS GRID -->
+    <div class="bins-grid" id="binsGrid">
+      <p class="loading">Loading bins...</p>
+    </div>
+
+    <!-- BIN DETAIL MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <h2 id="modalBinId">BIN-001</h2>
+        <p id="modalLocation" style="color:var(--text-muted); margin-bottom:20px"></p>
+
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <p class="stat-label">Fill Level</p>
+            <h3 id="modalFill" class="stat-value">--</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" id="modalProgress"></div>
+            </div>
+          </div>
+          <div class="modal-stat">
+            <p class="stat-label">Weight</p>
+            <h3 id="modalWeight" class="stat-value">--</h3>
+          </div>
+          <div class="modal-stat">
+            <p class="stat-label">Gas Level</p>
+            <h3 id="modalGas" class="stat-value">--</h3>
+          </div>
+          <div class="modal-stat">
+            <p class="stat-label">Status</p>
+            <h3 id="modalStatus" class="stat-value">--</h3>
+          </div>
+        </div>
+
+        <canvas id="modal-canvas"></canvas>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/bins.js"></script>
+</body>
+</html>
