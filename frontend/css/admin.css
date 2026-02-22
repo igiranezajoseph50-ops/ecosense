@@ -1,0 +1,130 @@
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background: rgba(0,255,136,0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* TAB CONTENT */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ADMIN GRID */
+.admin-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  margin-top: 4px;
+}
+
+.admin-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-card.wide { grid-column: 2; }
+
+.admin-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* FORM */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.input-group input,
+.input-group select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,255,136,0.15);
+  border-radius: 12px;
+  padding: 11px 14px;
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus { border-color: var(--primary); }
+.input-group select option { background: #0a1628; }
+
+.form-msg { font-size: 0.82rem; color: var(--primary); min-height: 16px; }
+.form-msg.error { color: #ff4444; }
+
+/* TABLE */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 10px 14px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.admin-table tr:hover td {
+  background: rgba(0,255,136,0.02);
+}
+
+.delete-btn {
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,50,50,0.3);
+  background: transparent;
+  color: #ff4444;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover { background: rgba(255,50,50,0.1); }
+
+.role-badge {
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.role-badge.admin { background: rgba(0,204,255,0.1); color: #00ccff; }
+.role-badge.driver { background: rgba(0,255,136,0.1); color: #00ff88; }
+.role-badge.operator { background: rgba(255,200,0,0.1); color: #ffcc00; }

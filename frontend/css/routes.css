@@ -1,0 +1,141 @@
+.routes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+}
+
+.route-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.route-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.route-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* FORM */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,255,136,0.15);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.3s;
+  font-family: inherit;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--primary);
+}
+
+.input-group select option { background: #0a1628; }
+.input-group textarea { resize: vertical; min-height: 80px; }
+
+.form-msg {
+  font-size: 0.85rem;
+  text-align: center;
+  min-height: 18px;
+  color: var(--primary);
+}
+
+.form-msg.error { color: #ff4444; }
+
+/* SCHEDULE LIST */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+.schedule-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border 0.2s;
+}
+
+.schedule-item:hover { border-color: var(--primary); }
+
+.schedule-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-top h4 { font-size: 0.95rem; font-weight: 700; }
+
+.schedule-badge {
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.schedule-badge.pending { background: rgba(255,200,0,0.1); color: #ffcc00; }
+.schedule-badge.in-progress { background: rgba(0,204,255,0.1); color: #00ccff; }
+.schedule-badge.completed { background: rgba(0,255,136,0.1); color: #00ff88; }
+.schedule-badge.cancelled { background: rgba(255,50,50,0.1); color: #ff4444; }
+
+.schedule-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.action-btn {
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover { border-color: var(--primary); color: var(--primary); }
+.action-btn.complete { border-color: rgba(0,255,136,0.3); color: #00ff88; }
+.action-btn.cancel { border-color: rgba(255,50,50,0.3); color: #ff4444; }
