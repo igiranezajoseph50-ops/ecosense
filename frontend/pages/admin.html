@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Admin</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>♻</span>
+      <h2>EcoSense</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="./dashboard.html" class="nav-item">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="./bins.html" class="nav-item">
+        <span class="nav-icon">🗑️</span> Bin Monitoring
+      </a>
+      <a href="./analytics.html" class="nav-item">
+        <span class="nav-icon">🤖</span> Analytics
+      </a>
+      <a href="./routes.html" class="nav-item">
+        <span class="nav-icon">🗺️</span> Routes
+      </a>
+      <a href="./admin.html" class="nav-item active">
+        <span class="nav-icon">⚙️</span> Admin
+      </a>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Admin Control</h1>
+        <p class="page-sub">Manage bins, users and system settings</p>
+      </div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span id="userName">Admin</span>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="bins">🗑️ Manage Bins</button>
+      <button class="tab-btn" data-tab="users">👤 Manage Users</button>
+      <button class="tab-btn" data-tab="sensors">📡 Add Sensor Data</button>
+    </div>
+
+    <!-- TAB: BINS -->
+    <div class="tab-content active" id="tab-bins">
+      <div class="admin-grid">
+
+        <!-- ADD BIN FORM -->
+        <div class="admin-card">
+          <h3>➕ Add New Bin</h3>
+          <div class="input-group">
+            <label>Bin ID</label>
+            <input type="text" id="binId" placeholder="e.g. BIN-005" />
+          </div>
+          <div class="input-group">
+            <label>Location Name</label>
+            <input type="text" id="binLocationName" placeholder="e.g. Kigali City Tower" />
+          </div>
+          <div class="input-group">
+            <label>Latitude</label>
+            <input type="number" id="binLat" placeholder="-1.9441" step="0.0001" />
+          </div>
+          <div class="input-group">
+            <label>Longitude</label>
+            <input type="number" id="binLng" placeholder="30.0619" step="0.0001" />
+          </div>
+          <div class="input-group">
+            <label>Initial Status</label>
+            <select id="binStatus">
+              <option value="green">🟢 Green</option>
+              <option value="yellow">🟡 Yellow</option>
+              <option value="red">🔴 Red</option>
+            </select>
+          </div>
+          <p class="form-msg" id="binMsg"></p>
+          <button class="btn-primary" id="addBinBtn">Add Bin</button>
+        </div>
+
+        <!-- BINS TABLE -->
+        <div class="admin-card wide">
+          <h3>📋 All Bins</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Bin ID</th>
+                <th>Location</th>
+                <th>Fill Level</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="binsTable">
+              <tr><td colspan="5" class="loading">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: USERS -->
+    <div class="tab-content" id="tab-users">
+      <div class="admin-grid">
+
+        <!-- ADD USER FORM -->
+        <div class="admin-card">
+          <h3>➕ Add New User</h3>
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="userName2" placeholder="John Doe" />
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="userEmail" placeholder="john@ecosense.rw" />
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="userPassword" placeholder="••••••••" />
+          </div>
+          <div class="input-group">
+            <label>Role</label>
+            <select id="userRole">
+              <option value="operator">Operator</option>
+              <option value="driver">Driver</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <p class="form-msg" id="userMsg"></p>
+          <button class="btn-primary" id="addUserBtn">Add User</button>
+        </div>
+
+        <!-- USERS TABLE -->
+        <div class="admin-card wide">
+          <h3>👥 All Users</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTable">
+              <tr><td colspan="5" class="loading">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: SENSORS -->
+    <div class="tab-content" id="tab-sensors">
+      <div class="admin-grid">
+        <div class="admin-card">
+          <h3>📡 Add Sensor Reading</h3>
+          <div class="input-group">
+            <label>Select Bin</label>
+            <select id="sensorBin">
+              <option value="">-- Select Bin --</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Fill Level (%)</label>
+            <input type="number" id="sensorFill" placeholder="0-100" min="0" max="100" />
+          </div>
+          <div class="input-group">
+            <label>Weight (kg)</label>
+            <input type="number" id="sensorWeight" placeholder="e.g. 25" />
+          </div>
+          <div class="input-group">
+            <label>Gas Level</label>
+            <input type="number" id="sensorGas" placeholder="e.g. 10" />
+          </div>
+          <div class="input-group">
+            <label>Temperature (°C)</label>
+            <input type="number" id="sensorTemp" placeholder="e.g. 28" />
+          </div>
+          <p class="form-msg" id="sensorMsg"></p>
+          <button class="btn-primary" id="addSensorBtn">Submit Reading</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
