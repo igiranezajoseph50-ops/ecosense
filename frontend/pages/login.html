@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Login</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+
+  <canvas id="three-canvas"></canvas>
+
+  <div class="login-wrapper">
+
+    <div class="login-logo">
+      <span>♻</span>
+      <h1>EcoSense <span class="highlight">Rwanda</span></h1>
+    </div>
+
+    <div class="login-card">
+      <h2>Welcome Back</h2>
+      <p class="login-sub">Sign in to your dashboard</p>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="admin@ecosense.rw" />
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="••••••••" />
+      </div>
+
+      <p class="error-msg" id="errorMsg"></p>
+
+      <button class="btn-primary" id="loginBtn">Login</button>
+
+      <p class="login-footer">
+        Don't have an account? <a href="#">Contact Admin</a>
+      </p>
+    </div>
+
+    <a href="../pages/landing.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>
