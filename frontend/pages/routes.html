@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Routes</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/routes.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>♻</span>
+      <h2>EcoSense</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="./dashboard.html" class="nav-item">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="./bins.html" class="nav-item">
+        <span class="nav-icon">🗑️</span> Bin Monitoring
+      </a>
+      <a href="./analytics.html" class="nav-item">
+        <span class="nav-icon">🤖</span> Analytics
+      </a>
+      <a href="./routes.html" class="nav-item active">
+        <span class="nav-icon">🗺️</span> Routes
+      </a>
+      <a href="./admin.html" class="nav-item">
+        <span class="nav-icon">⚙️</span> Admin
+      </a>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Collection Routes</h1>
+        <p class="page-sub">Manage and track waste collection schedules</p>
+      </div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span id="userName">Admin</span>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon green">📋</div>
+        <div>
+          <p class="stat-label">Total Schedules</p>
+          <h2 class="stat-value" id="totalSchedules">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon yellow">⏳</div>
+        <div>
+          <p class="stat-label">Pending</p>
+          <h2 class="stat-value" id="pendingSchedules">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">✅</div>
+        <div>
+          <p class="stat-label">Completed</p>
+          <h2 class="stat-value" id="completedSchedules">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red">🚛</div>
+        <div>
+          <p class="stat-label">In Progress</p>
+          <h2 class="stat-value" id="inProgressSchedules">--</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="routes-grid">
+
+      <!-- SCHEDULE FORM -->
+      <div class="route-card">
+        <h3>➕ New Schedule</h3>
+
+        <div class="input-group">
+          <label>Select Bin</label>
+          <select id="selectBin">
+            <option value="">-- Select Bin --</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Select Driver</label>
+          <select id="selectDriver">
+            <option value="">-- Select Driver --</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Scheduled Date</label>
+          <input type="datetime-local" id="scheduleDate" />
+        </div>
+
+        <div class="input-group">
+          <label>Notes</label>
+          <textarea id="scheduleNotes" placeholder="Optional notes..."></textarea>
+        </div>
+
+        <p class="form-msg" id="formMsg"></p>
+        <button class="btn-primary" id="createScheduleBtn">Create Schedule</button>
+      </div>
+
+      <!-- SCHEDULES LIST -->
+      <div class="route-card">
+        <div class="route-card-top">
+          <h3>📋 All Schedules</h3>
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="in-progress">Active</button>
+            <button class="filter-btn" data-filter="completed">Done</button>
+          </div>
+        </div>
+        <div class="schedule-list" id="scheduleList">
+          <p class="loading">Loading schedules...</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/routes.js"></script>
+</body>
+</html>
