@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSense Rwanda | Dashboard</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>♻</span>
+      <h2>EcoSense</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="./dashboard.html" class="nav-item active">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="./bins.html" class="nav-item">
+        <span class="nav-icon">🗑️</span> Bin Monitoring
+      </a>
+      <a href="./analytics.html" class="nav-item">
+        <span class="nav-icon">🤖</span> Analytics
+      </a>
+      <a href="./routes.html" class="nav-item">
+        <span class="nav-icon">🗺️</span> Routes
+      </a>
+      <a href="./admin.html" class="nav-item">
+        <span class="nav-icon">⚙️</span> Admin
+      </a>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Smart Dashboard</h1>
+        <p class="page-sub">Real-time waste monitoring overview</p>
+      </div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span id="userName">Admin</span>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon green">🗑️</div>
+        <div>
+          <p class="stat-label">Total Bins</p>
+          <h2 class="stat-value" id="totalBins">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">🟢</div>
+        <div>
+          <p class="stat-label">Green Bins</p>
+          <h2 class="stat-value" id="greenBins">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon yellow">🟡</div>
+        <div>
+          <p class="stat-label">Yellow Bins</p>
+          <h2 class="stat-value" id="yellowBins">--</h2>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red">🔴</div>
+        <div>
+          <p class="stat-label">Critical Bins</p>
+          <h2 class="stat-value" id="redBins">--</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- THREE.JS + BIN LIST -->
+    <div class="dashboard-grid">
+
+      <!-- THREE.JS SCENE -->
+      <div class="canvas-card">
+        <h3>Live 3D Overview</h3>
+        <canvas id="three-canvas"></canvas>
+      </div>
+
+      <!-- BIN LIST -->
+      <div class="bin-list-card">
+        <h3>Recent Bin Alerts</h3>
+        <div class="bin-list" id="binList">
+          <p class="loading">Loading bins...</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
